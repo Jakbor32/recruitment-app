@@ -80,8 +80,43 @@ The system was developed using a combination of powerful Microsoft technologies,
 
 ### 7. Using the Application
 
-### 8. Security and Access
+![powerapps flowchart](https://github.com/Jakbor32/recruitment-app/blob/main/media/app/photos/powerapps_flowchart.png)
 
-### 9. Troubleshooting
+### 8. Troubleshooting
 
-### 10. Future Development and Roadmap
+## 🔧 Troubleshooting
+
+- **PowerApps**  
+  If a submitted request does not appear in the connected data source (e.g., SharePoint), the issue could be related to client-side validation, network interruptions, or a failure in the data connection. To improve reliability and visibility, wrap the `SubmitForm()` function in an `IfError()` block and surface any errors using `Notify()`. This approach allows you to provide meaningful feedback to users while capturing the reason for submission failure. Additionally, use the built-in **Monitor** tool in PowerApps Studio to inspect app behavior in real time — including API calls, connector responses, and failed operations. This helps track why a form might not have been saved properly or whether there was an issue with the SharePoint integration.
+
+- **SharePoint**  
+  When dealing with unexpected changes or missing data in lists or document libraries, the **Version History** feature is the first place to investigate. SharePoint automatically tracks edits to list items and documents, allowing you to review, compare, or restore previous versions. This is especially useful in workflows involving PowerApps or Power Automate, where automated changes might overwrite user input. You can access an item’s version history via the context menu to audit modifications and restore previous states if needed.  
+  Additionally, it is important to verify **user permissions** on the target SharePoint list or document library. If the user or service account running a flow or submitting data from PowerApps lacks sufficient permissions (e.g., Contribute or Edit rights), the submission will silently fail or return an access denied error. Ensuring correct list-level or item-level permissions is critical for successful data operations, especially in apps that are widely used across departments or organizations.
+
+- **Power Automate**  
+  If a flow fails to execute or produces unexpected results, the **Run History** within Power Automate provides detailed diagnostics. Navigate to the specific flow in the Power Automate portal, then review each execution instance, paying close attention to any failed steps. Expanding a run reveals input/output values and error messages for every action, helping you identify whether the issue stems from permissions, broken expressions, unmet trigger conditions, or null data. Ensuring that flows handle exceptions gracefu
+
+### 9. Future Development and Roadmap
+
+This recruitment platform was designed with extensibility in mind. To ensure long-term value and adaptability to evolving HR needs, the following roadmap outlines planned features, enhancements, and areas for improvement:
+
+- **Mobile Responsiveness & Offline Mode**  
+  Optimize the PowerApps Canvas App for mobile devices with responsive layouts and offline capabilities, allowing HR teams to work efficiently on the go or in low-connectivity environments.
+
+- **Interview Scheduling Integration**  
+  Integrate calendar features and Microsoft Bookings to streamline the scheduling of interviews, with automated invitations sent to candidates and interviewers.
+
+- **Analytics Dashboard**  
+  Implement a Power BI-based analytics dashboard to give HR managers insights into recruitment metrics, such as time-to-hire, rejection rates, and bottlenecks in the approval process.
+
+- **Multi-language Support**  
+  Add localization support to enable use of the application in multiple languages, depending on the organization’s needs.
+
+- **Security Hardening**  
+  Conduct a formal security review of data access rules, roles, and sharing configurations to ensure continued compliance with internal and external data privacy regulations.
+
+- **Automated Deletion & Retention Policies**  
+  Implement automated retention policies for archiving or deleting old recruitment requests in SharePoint after a defined period, in accordance with GDPR and internal HR policies.
+
+- **User Feedback Loop**  
+  Add an in-app feedback module to collect user suggestions and identify usability pain points directly from end users.
