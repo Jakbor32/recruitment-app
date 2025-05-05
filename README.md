@@ -84,8 +84,6 @@ The system was developed using a combination of powerful Microsoft technologies,
 
 ### 8. Troubleshooting
 
-## 🔧 Troubleshooting
-
 - **PowerApps**  
   If a submitted request does not appear in the connected data source (e.g., SharePoint), the issue could be related to client-side validation, network interruptions, or a failure in the data connection. To improve reliability and visibility, wrap the `SubmitForm()` function in an `IfError()` block and surface any errors using `Notify()`. This approach allows you to provide meaningful feedback to users while capturing the reason for submission failure. Additionally, use the built-in **Monitor** tool in PowerApps Studio to inspect app behavior in real time — including API calls, connector responses, and failed operations. This helps track why a form might not have been saved properly or whether there was an issue with the SharePoint integration.
 
@@ -94,7 +92,7 @@ The system was developed using a combination of powerful Microsoft technologies,
   Additionally, it is important to verify **user permissions** on the target SharePoint list or document library. If the user or service account running a flow or submitting data from PowerApps lacks sufficient permissions (e.g., Contribute or Edit rights), the submission will silently fail or return an access denied error. Ensuring correct list-level or item-level permissions is critical for successful data operations, especially in apps that are widely used across departments or organizations.
 
 - **Power Automate**  
-  If a flow fails to execute or produces unexpected results, the **Run History** within Power Automate provides detailed diagnostics. Navigate to the specific flow in the Power Automate portal, then review each execution instance, paying close attention to any failed steps. Expanding a run reveals input/output values and error messages for every action, helping you identify whether the issue stems from permissions, broken expressions, unmet trigger conditions, or null data. Ensuring that flows handle exceptions gracefu
+  If a flow fails to execute or produces unexpected results, the **Run History** within Power Automate provides detailed diagnostics. Navigate to the specific flow in the Power Automate portal, then review each execution instance, paying close attention to any failed steps. Expanding a run reveals input/output values and error messages for every action, helping you identify whether the issue stems from permissions, broken expressions, unmet trigger conditions, or null data. Ensuring that flows handle exceptions gracefully (using `Configure run after` or condition branches) also helps prevent partial failures in production environments.
 
 ### 9. Future Development and Roadmap
 
